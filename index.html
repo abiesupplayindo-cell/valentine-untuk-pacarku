@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Kamu 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #5a1e2c, #d88ca0, #f5e6d3);
+      color: white;
+      overflow-x: hidden;
+    }
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    h1 { font-size: 32px; margin-bottom:20px; }
+    h2 { font-size: 24px; margin-bottom:20px; }
+    p { max-width: 600px; margin: 0 auto 20px; line-height: 1.6; }
+    button {
+      padding: 12px 24px;
+      border-radius: 30px;
+      border: none;
+      background: white;
+      color: #5a1e2c;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { transform: scale(1.05); }
+    .hidden { display:none; }
+    .content {
+      background: #f5e6d3;
+      color: #5a1e2c;
+      border-radius: 40px 40px 0 0;
+      margin-top: 50px;
+      padding-bottom: 100px;
+    }
+    ul { list-style:none; padding:0; }
+    li { margin-bottom:10px; }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 1s;
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body><audio id="bgMusic" loop>
+  <source src="lagu.mp3" type="audio/mpeg">
+</audio><button onclick="toggleMusic()" style="position:fixed;bottom:20px;right:20px;padding:10px 18px;border-radius:30px;border:none;background:white;color:#5a1e2c;font-weight:600;box-shadow:0 5px 15px rgba(0,0,0,0.2);cursor:pointer;z-index:999;">
+  🎵 Putar Musik
+</button><script>
+  function toggleMusic(){
+    const music = document.getElementById('bgMusic');
+    if(music.paused){
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script><section>
+  <h1>Ada satu dunia kecil...</h1>
+  <p>Dunia yang isinya cuma kamu. Mau masuk dan lihat apa yang aku simpan selama ini?</p>
+  <button onclick="openWorld()">Buka Dunia Ini 💖</button>
+</section><div id="mainContent" class="content hidden">
+  <section class="fade">
+    <h2>Dari Awal Kenal...</h2>
+    <p>
+      Aku masih inget pertama kali kita ngobrol. Awalnya biasa aja, tapi lama-lama jadi kebiasaan.
+      Dari chat random jadi hal yang ditunggu. Dari "lagi apa" jadi "kok kangen ya".
+      Lucu sih, nggak pernah nyangka orang yang awalnya cuma kenalan bisa jadi rumah paling nyaman.
+    </p>
+  </section>  <section class="fade">
+    <h2>Hal Kecil yang Paling Aku Suka</h2>
+    <ul>
+      <li>• Cara kamu cerita hal receh tapi bikin aku senyum sendiri.</li>
+      <li>• Ngambek kecil kamu yang sebenernya cuma pengen dimengerti.</li>
+      <li>• Tawa kamu yang kadang lebih kenceng dari lucunya.</li>
+      <li>• Cara kamu bilang "hati-hati ya" kayak itu doa paling tulus.</li>
+    </ul>
+  </section>  <section class="fade">
+    <h2>Catatan Buat Kamu</h2>
+    <p>
+      Aku mungkin nggak selalu pinter ngerangkai kata, tapi aku tau satu hal.
+      Aku bersyukur banget kamu ada.
+      Kamu bikin hari biasa jadi punya arti.
+      Dan walaupun kita nggak sempurna, justru itu yang bikin semuanya terasa nyata.
+    </p>
+  </section>  <section>
+    <button onclick="openSecret()">Buka Pesan Rahasia 🔒</button>
+    <div id="secret" class="card hidden fade">
+      <p>
+        Terima kasih ya, udah milih buat tetap di sini.
+        Aku nggak tau masa depan bakal gimana,
+        tapi aku tau aku pengen terus jalan bareng kamu.
+        Lewatin hari biasa, hari ribet, bahkan hari yang bikin kita kesel.Happy Valentine 💌
+    Ini bukan cuma tentang hari ini,
+    tapi tentang semua hari yang pengen aku bagi sama kamu.
+  </p>
+</div>
+
+  </section>
+</div><script>
+  function openWorld(){
+    document.getElementById('mainContent').classList.remove('hidden');
+    revealOnScroll();
+  }
+
+  function openSecret(){
+    const secret = document.getElementById('secret');
+    secret.classList.remove('hidden');
+    setTimeout(()=> secret.classList.add('show'),100);
+  }
+
+  function revealOnScroll(){
+    const fades = document.querySelectorAll('.fade');
+    fades.forEach((el,i)=>{
+      setTimeout(()=> el.classList.add('show'), i*400);
+    });
+  }
+</script>  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: 0.4s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>  <script>
+    // Tambahan animasi untuk gallery biar ikut fade
+    document.addEventListener("DOMContentLoaded", function(){
+      const gallerySection = document.createElement("section");
+      gallerySection.className = "fade";
+      gallerySection.innerHTML = `
+        <h2>Momen Kita 📸</h2>
+        <p>Beberapa potongan kecil yang mungkin sederhana, tapi selalu bikin aku senyum tiap liatnya.</p>
+        <div class="gallery">
+          <div class="gallery">
+    <img src="foto1.jpg" alt="">
+    <img src="foto2.jpg" alt="">
+    <img src="foto3.jpg" alt="">
+</div>
+      `;
+      document.getElementById("mainContent").appendChild(gallerySection);
+    });
+  </script>
+
+<audio controls autoplay loop>
+  <source src="kota.mp3" type="audio/m
